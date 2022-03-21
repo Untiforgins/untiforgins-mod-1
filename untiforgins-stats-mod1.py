@@ -27,7 +27,7 @@ class StatsMod:
         self.badge2 = badge2
         self.badge3 = badge3
 
-        def UserMod(self):
+    def UserMod(self):
         embed = discord.Embed(title="Stats", colour=ctx.author.colour, timestamp=ctx.message.created_at)
         embed.set_thumbnail(url=self.flag)
         embed.set_footer(text="Israel is rightful Jewish land, Palestine doesnt exist.")

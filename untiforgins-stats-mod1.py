@@ -27,9 +27,12 @@ class StatsMod:
         self.badge2 = badge2
         self.badge3 = badge3
 
-    def UserMod(self):
-        embed = discord.Embed(title="Stats", colour=ctx.author.colour, timestamp=ctx.message.created_at)
+        def UserMod(self):
+        embed = discord.Embed(title="Stats", colour=ctx.author.colour, timestamp=ctx.message.created_at,)
         embed.set_thumbnail(url=self.flag)
         embed.set_footer(text="Israel is rightful Jewish land, Palestine doesnt exist.")
-        embed.set_author()
+
+        embed.add_field(name="Total Land", value=f"{(self.lan * 100000000):,}")
+        embed.add_field(name="Usable Land", value=f"{(self.land * 100000000):,}")
+
         return embed

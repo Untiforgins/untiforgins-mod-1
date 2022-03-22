@@ -39,9 +39,9 @@ class StatsMod:
 
         embed.add_field(
             name="Basic Info:",
-            value=f"Name: {self.name}\n"
+            value=f"Name: {self.country} {self.name}\n"
                   f"Date Founded: {self.created}\n"
-                  f"Badges: {self.badge1}\n{self.badge2}\n{self.badge3}\n",
+                  f"Badges: \n`{self.badge1}`\n`{self.badge2}`\n`{self.badge3}`\n",
             inline=False
         )
 
@@ -54,10 +54,11 @@ class StatsMod:
         )
 
         embed.add_field(
-            name="Economics:",
+            name="Economy:",
             value=f"Balance: {self.balance:,} {self.currency}\n"
                   f"Gross Domestic Product: {self.gdp:,} {self.currency}\n"
-                  f"GDP Per Capita: {self.gdp/self.pop:,} {self.currency}\n",
+                  f"GDP Per Capita: {self.gdp/self.pop:,} {self.currency}\n"
+                  f"Processors: {self.factory:,}/50,000\n",
             inline=False
         )
 

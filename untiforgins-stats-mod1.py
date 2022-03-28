@@ -1,3 +1,4 @@
+import asyncio
 import discord
 
 
@@ -101,12 +102,19 @@ class StatsMod:
         def check(react, usr):
             return usr == self.ctx.author and str(react.emoji) in "📊💰"
 
-        reaction, user = await self.client.wait_for("reaction_add", timeout=30, check=check)
+        while True:
+            try:
+                reaction, user = await self.client.wait_for("reaction_add", timeout=30, check=check)
 
-        if str(reaction.emoji) == "📊":
-            await message.edit(embed=stats)
+                if str(reaction.emoji) == "📊":
+                    await message.edit(embed=stats)
 
-        elif str(reaction.emoji) == "💰":
-            await message.edit(embed=bal)
+                elif str(reaction.emoji) == "💰":
+                    await message.edit(embed=bal)
 
-        await message.remove_reaction(reaction, user)
+                await message.remove_reaction(reaction, user)
+            except asyncio.TimeoutError:
+                embed = message.embeds[0]
+                embed.add_field(name="Timed Out", value="Reaction menu has times out", inline=False)
+                await message.edit(embed=embed)
+                break

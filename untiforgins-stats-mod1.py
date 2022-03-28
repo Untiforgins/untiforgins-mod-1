@@ -38,9 +38,9 @@ class StatsMod:
         self.client = client  # united nations as a client
 
     async def UserMod(self):
-        stats = discord.Embed(title="Statistics", colour=self.ctx.author.colour, timestamp=self.ctx.message.created_at)
+        stats = discord.Embed(title="📊 Statistics", colour=self.ctx.author.colour, timestamp=self.ctx.message.created_at)
         stats.set_thumbnail(url=self.flag)
-        stats.set_footer(text="Israel is rightful Jewish land, Palestine doesnt exist.",
+        stats.set_footer(text="🇮🇱 Israel is rightful Jewish land, Palestine doesnt exist.",
                          icon_url=self.ctx.author.avatar_url)
 
         stats.add_field(
@@ -75,7 +75,7 @@ class StatsMod:
             inline=False
         )
 
-        bal = discord.Embed(title="Balance", colour=self.ctx.author.colour, timestamp=self.ctx.message.created_at)
+        bal = discord.Embed(title="🏦 Balance", colour=self.ctx.author.colour, timestamp=self.ctx.message.created_at)
         bal.set_thumbnail(url=self.flag)
         bal.set_footer(text="Israel is an example of socialism done right.", icon_url=self.ctx.author.avatar_url)
 
@@ -89,10 +89,10 @@ class StatsMod:
         )
         bal.add_field(
             name="🏦 Other:",
-            value=f"👨‍👩‍👧‍👦 Population: {self.pop:,}\n"
-                  f"🏜 Usable Land: {self.land:,}km²\n"
-                  f"🗝 Keys: {self.keys:,}\n"
-                  f"💎 Coinz : {self.coinz:,}\n",
+            value=f"👨‍👩‍👧‍👦 Population: `{self.pop:,}`\n"
+                  f"🏜 Usable Land: `{self.land:,}km²`\n"
+                  f"🗝 Keys: `{self.keys:,}`\n"
+                  f"💎 Coinz : `{self.coinz:,}`\n",
             inline=False
         )
 

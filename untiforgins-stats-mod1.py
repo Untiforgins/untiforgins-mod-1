@@ -43,55 +43,55 @@ class StatsMod:
         stats.set_footer(text="Israel is rightful Jewish land, Palestine doesnt exist.", icon_url=self.ctx.author.avatar_url)
 
         stats.add_field(
-            name="Basic Info:",
-            value=f"Name: {self.country} {self.name}\n"
-                  f"Date Founded: {self.created}\n"
-                  f"Badges: \n`{self.badge1}`\n`{self.badge2}`\n`{self.badge3}`\n",
+            name="📋 Basic Info:",
+            value=f"📜 Name: {self.country} `{self.name}`\n"
+                  f"📆 Date Founded: `{self.created}`\n"
+                  f"🏅 Badges : \n`{self.badge1}`\n`{self.badge2}`\n`{self.badge3}`\n",
             inline=False
         )
         stats.add_field(
-            name="Competitive Info:\n",
-            value=f"Last Updated: {self.updated}\n"
-                  f"Competitive Score: {self.competitiveRank} | {self.score}\n"
-                  f"Empire: {self.empireName} - *{self.empireMotto}*\n",
+            name="🏎️ Competitive Info:\n",
+            value=f"🔁 Last Updated: `{self.updated}`\n"
+                  f"🎯 Competitive Score: {self.competitiveRank} | `{self.score}`\n"
+                  f"🗺 Empire : `{self.empireName} - *{self.empireMotto}*`\n",
             inline=False
         )
         stats.add_field(
-            name="Economy:",
-            value=f"Balance: {self.balance:,} {self.currency}\n"
-                  f"Gross Domestic Product: {self.gdp:,} {self.currency}\n"
-                  f"GDP Per Capita: {self.gdp/self.pop:,} {self.currency}\n"
-                  f"Processors: {self.factory:,}/50,000\n"
-                  f"Corporations: {(self.lan - self.factory * 2 - self.land) / 2:,}\n",
+            name="💹 Economy:",
+            value=f"💰 Balance: `{self.balance:,} {self.currency}`\n"
+                  f"📈 Gross Domestic Product: `{self.gdp:,} {self.currency}`\n"
+                  f"⚖ GDP Per Capita: `{self.gdp/self.pop:,} {self.currency}`\n"
+                  f"🏗 Processors: `{self.factory:,}/50,000`\n"
+                  f"🏢 Corporations : `{(self.lan - self.factory * 2 - self.land) / 2:,}`\n",
             inline=False
         )
         stats.add_field(
-            name="Demographics:",
-            value=f"Population: {self.pop:,}\n"
-                  f"Total Land Area: {self.lan:,}km²\n"
-                  f"Usable Land: {self.land:,}km²\n"
-                  f"Population Density: {self.pop/self.lan:,}/km²\n",
+            name="🏙 Demographics:",
+            value=f"👨‍👩‍👧‍👦 Population: `{self.pop:,}`\n"
+                  f"🏡 Total Land Area: `{self.lan:,}km²`\n"
+                  f"🏜 Usable Land: `{self.land:,}km²`\n"
+                  f"🧑‍💼 Population Density : `{self.pop/self.lan:,}/km²`\n",
             inline=False
         )
 
         bal = discord.Embed(title="Balance", colour=self.ctx.author.colour, timestamp=self.ctx.message.created_at)
         bal.set_thumbnail(url=self.flag)
         bal.set_footer(text="Israel is an example of socialism done right.", icon_url=self.ctx.author.avatar_url)
-
+        
         bal.add_field(
-            name="Economy:",
-            value=f"Balance: {self.balance:,} {self.currency}\n"
-                  f"Research Points: {self.tech:,}\n"
-                  f"Corporations: {(self.lan - self.factory * 2 - self.land) / 2:,}\n"
-                  f"Processors: {self.factory:,}/50,000\n",
+            name="💹 Economy:",
+            value=f"💰 Balance: `{self.balance:,} {self.currency}`\n"
+                  f"🔬 Research Points: `{self.tech:,}`\n"
+                  f"🏢 Corporations: `{(self.lan - self.factory * 2 - self.land) / 2:,}`\n"
+                  f"🏗 Processors : `{self.factory:,}/50,000`\n",
             inline=False
         )
         bal.add_field(
-            name="Other:",
-            value=f"Population: {self.pop:,}\n"
-                  f"Usable Land: {self.land:,}km²\n"
-                  f"Keys: {self.keys:,}\n"
-                  f"Coinz: {self.coinz:,}\n",
+            name="🏦 Other:",
+            value=f"👨‍👩‍👧‍👦 Population: {self.pop:,}\n"
+                  f"🏜 Usable Land: {self.land:,}km²\n"
+                  f"🗝 Keys: {self.keys:,}\n"
+                  f"💎 Coinz : {self.coinz:,}\n",
             inline=False
         )
 

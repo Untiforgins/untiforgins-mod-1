@@ -52,7 +52,7 @@ class StatsMod:
         )
         stats.add_field(
             name="🏎️ Competitive Info:\n",
-            value=f"🔁 Last Updated: `{self.updated}`\n"
+            value=f"🔁 Last Updated: `{self.updated} hours ago`\n"
                   f"🎯 Competitive Score: {self.competitiveRank} | `{self.score}`\n"
                   f"🗺 Empire : `{self.empireName} - *{self.empireMotto}*`\n",
             inline=False

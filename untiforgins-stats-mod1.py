@@ -5,7 +5,7 @@ import discord
 class StatsMod:
     def __init__(
             self, ctx, client, empireMotto: str, empireName: str, country: str, updated: int, uuid: int, flag: str,
-            created: str, lan: int, pop: int, factory: int,land: int, name: str, emp: str, rank: str, score: float,
+            created: str, lan: int, pop: int, factory: int, land: int, name: str, emp: str, rank: str, score: float,
             competitiveRank: str, gdp: int, balance: int, currency: str, coinz: int, tech: int, keys: int, badge1: str,
             badge2: str, badge3: str
     ):
@@ -40,7 +40,8 @@ class StatsMod:
     async def UserMod(self):
         stats = discord.Embed(title="Statistics", colour=self.ctx.author.colour, timestamp=self.ctx.message.created_at)
         stats.set_thumbnail(url=self.flag)
-        stats.set_footer(text="Israel is rightful Jewish land, Palestine doesnt exist.", icon_url=self.ctx.author.avatar_url)
+        stats.set_footer(text="Israel is rightful Jewish land, Palestine doesnt exist.",
+                         icon_url=self.ctx.author.avatar_url)
 
         stats.add_field(
             name="📋 Basic Info:",
@@ -60,7 +61,7 @@ class StatsMod:
             name="💹 Economy:",
             value=f"💰 Balance: `{self.balance:,} {self.currency}`\n"
                   f"📈 Gross Domestic Product: `{self.gdp:,} {self.currency}`\n"
-                  f"⚖ GDP Per Capita: `{self.gdp/self.pop:,} {self.currency}`\n"
+                  f"⚖ GDP Per Capita: `{self.gdp / self.pop:,} {self.currency}`\n"
                   f"🏗 Processors: `{self.factory:,}/50,000`\n"
                   f"🏢 Corporations : `{(self.lan - self.factory * 2 - self.land) / 2:,}`\n",
             inline=False
@@ -70,14 +71,14 @@ class StatsMod:
             value=f"👨‍👩‍👧‍👦 Population: `{self.pop:,}`\n"
                   f"🏡 Total Land Area: `{self.lan:,}km²`\n"
                   f"🏜 Usable Land: `{self.land:,}km²`\n"
-                  f"🧑‍💼 Population Density : `{self.pop/self.lan:,}/km²`\n",
+                  f"🧑‍💼 Population Density : `{self.pop / self.lan:,}/km²`\n",
             inline=False
         )
 
         bal = discord.Embed(title="Balance", colour=self.ctx.author.colour, timestamp=self.ctx.message.created_at)
         bal.set_thumbnail(url=self.flag)
         bal.set_footer(text="Israel is an example of socialism done right.", icon_url=self.ctx.author.avatar_url)
-        
+
         bal.add_field(
             name="💹 Economy:",
             value=f"💰 Balance: `{self.balance:,} {self.currency}`\n"
@@ -115,6 +116,6 @@ class StatsMod:
                 await message.remove_reaction(reaction, user)
             except asyncio.TimeoutError:
                 embed = message.embeds[0]
-                embed.add_field(name="Timed Out", value="Reaction menu has times out", inline=False)
+                embed.add_field(name="⏱ Timed Out ⏱", value="Reaction menu has timed out!", inline=False)
                 await message.edit(embed=embed)
                 break

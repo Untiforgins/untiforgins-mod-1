@@ -37,11 +37,11 @@ class StatsMod:
         self.ctx = ctx  # context
         self.client = client  # united nations as a client
 
-    async def UserMod(self):
-        stats = discord.Embed(title="📊 Statistics", colour=self.ctx.author.colour, timestamp=self.ctx.message.created_at)
+    async def UserMod(self, ctx):
+        stats = discord.Embed(title="📊 Statistics", colour=ctx.author.colour, timestamp=ctx.message.created_at)
         stats.set_thumbnail(url=self.flag)
-        stats.set_footer(text="🇮🇱 Israel is rightful Jewish land, Palestine doesnt exist.",
-                         icon_url=self.ctx.author.avatar_url)
+        stats.set_footer(text="Israel is rightful Jewish land, Palestine doesnt exist.",
+                         icon_url=ctx.author.avatar_url)
 
         stats.add_field(
             name="📋 Basic Info:",
@@ -52,7 +52,7 @@ class StatsMod:
         )
         stats.add_field(
             name="🏎️ Competitive Info:\n",
-            value=f"🔁 Last Updated: `{self.updated} hours ago`\n"
+            value=f"🔁 Last Updated: `{self.updated}`\n"
                   f"🎯 Competitive Score: {self.competitiveRank} | `{self.score}`\n"
                   f"🗺 Empire : `{self.empireName} - *{self.empireMotto}*`\n",
             inline=False
@@ -75,9 +75,9 @@ class StatsMod:
             inline=False
         )
 
-        bal = discord.Embed(title="🏦 Balance", colour=self.ctx.author.colour, timestamp=self.ctx.message.created_at)
+        bal = discord.Embed(title="Balance", colour=ctx.author.colour, timestamp=ctx.message.created_at)
         bal.set_thumbnail(url=self.flag)
-        bal.set_footer(text="Israel is an example of socialism done right.", icon_url=self.ctx.author.avatar_url)
+        bal.set_footer(text="Israel is an example of socialism done right.", icon_url=ctx.author.avatar_url)
 
         bal.add_field(
             name="💹 Economy:",
@@ -96,12 +96,12 @@ class StatsMod:
             inline=False
         )
 
-        message = await self.ctx.send(embed=stats)
+        message = await ctx.send(embed=stats)
         await message.add_reaction("📊")
         await message.add_reaction("💰")
 
         def check(react, usr):
-            return usr == self.ctx.author and str(react.emoji) in "📊💰"
+            return usr == ctx.author and str(react.emoji) in "📊💰"
 
         while True:
             try:
@@ -112,8 +112,6 @@ class StatsMod:
 
                 elif str(reaction.emoji) == "💰":
                     await message.edit(embed=bal)
-
-                await message.remove_reaction(reaction, user)
             except asyncio.TimeoutError:
                 embed = message.embeds[0]
                 embed.add_field(name="⏱ Timed Out ⏱", value="Reaction menu has timed out!", inline=False)
